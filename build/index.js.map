@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/index.js"],"names":[],"mappings":";;AAAA;;AAEA;;AACA","sourcesContent":["import \"@babel/polyfill\"\n\nimport \"#root/server/startServer\"\nimport \"#root/db/connection\"\n"],"file":"index.js"}
