@@ -1,17 +1,15 @@
 import {Pool} from 'pg';
-const connectionString = process.env.DATABASE_URL
 
 const pool = new Pool({
-    connectionString
-    // host: process.env.DATABASE_HOST,
-    // port: process.env.DATABASE_PORT,
-    // database: process.env.DATABASE_DATABASE,
-    // user: process.env.DATABASE_USER ,
-    // password: process.env.DATABASE_PASSWORD ,
-    // max: 20,
-    // idleTimeoutMillis: 30000,
-    // connectionTimeoutMillis: 2000,
-    // ssl: false
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
+    database: process.env.DATABASE_DATABASE,
+    user: process.env.DATABASE_USER ,
+    password: process.env.DATABASE_PASSWORD ,
+    max: 20,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000,
+    ssl: true,
 })
 
 pool.connect((err, client, release) => {
