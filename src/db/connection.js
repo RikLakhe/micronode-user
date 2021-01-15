@@ -10,7 +10,7 @@ const pool = new Pool({
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
     ssl: {
-        require: true,
+        require: process.env.NODE_ENV==='development' ? false : true,
         rejectUnauthorized: false,
     },
 })
