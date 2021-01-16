@@ -1,5 +1,5 @@
 import {Pool} from 'pg';
-import dbConfig from "../config/dbConfig";
+import dbConfig from "../configs/dbConfig";
 
 const pool = new Pool(dbConfig)
 

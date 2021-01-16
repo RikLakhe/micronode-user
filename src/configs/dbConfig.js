@@ -8,8 +8,8 @@ const dbConfig = process.env.NODE_ENV!=='development' ? ({
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
     ssl: {
-        require: process.env.NODE_ENV==='development' ? false : true,
-        rejectUnauthorized: process.env.NODE_ENV==='development' ? true : false,
+        require:  true,
+        rejectUnauthorized: false,
     },
 }) : ({
     host: process.env.DATABASE_HOST,
