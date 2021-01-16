@@ -1,10 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser"
-import dotenv from 'dotenv'
 import logger from 'morgan'
 import cors from 'cors'
-
-dotenv.config();
+import publicRouter from "../routes";
 
 const app = express();
 
@@ -24,7 +22,8 @@ app.use(
 app.get('/', (request, response) => {
     response.json({info: 'Node.js, Express, and Postgres API'})
 })
+app.use('/api',publicRouter);
 
 app.listen(port, () => {
-    console.log(`App running on port === ${port}.`)
+    console.log(`App running on port ${port}.`)
 })
