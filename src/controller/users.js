@@ -26,7 +26,7 @@ const createUser = (request, response) => {
     const id = generateUUID();
     const {name, email, password} = request.body
     const createDate = new Date();
-    pool.query('INSERT INTO users (id,user_name, user_email,user_password, create_date, active) VALUES ($1, $2,$3,$4, $5) RETURNING *', [id, name, email, hashPassword(password), createDate, true], (error, results) => {
+    pool.query('INSERT INTO users (id,user_name, user_email,user_password, create_date, active) VALUES ($1, $2,$3,$4, $5, $6) RETURNING *', [id, name, email, hashPassword(password), createDate, true], (error, results) => {
         if (error) {
             throw error
         }
