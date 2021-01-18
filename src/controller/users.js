@@ -1,5 +1,6 @@
-import pool from '../db/connection'
-import generateUUID from "../helper/generateUUID";
+import pool from '#root/db/connection'
+import generateUUID from "#root/helper/generateUUID";
+import {hashPassword} from "#root/helper/passwordUtils";
 
 const getUsers = (request, response) => {
     pool.query('SELECT * FROM users ORDER BY sn ASC', (error, results) => {
@@ -22,24 +23,25 @@ const getUserById = (request, response) => {
 }
 
 const createUser = (request, response) => {
-    const {name, email} = request.body
     const id = generateUUID();
-    pool.query('INSERT INTO users (id,user_name, user_email) VALUES ($1, $2,$3) RETURNING *', [id, name, email], (error, results) => {
+    const {name, email, password} = request.body
+    const createDate = new Date();
+    pool.query('INSERT INTO users (id,user_name, user_email,user_password, create_date, active) VALUES ($1, $2,$3,$4, $5, $6) RETURNING *', [id, name, email, hashPassword(password), createDate, true], (error, results) => {
         if (error) {
             throw error
         }
-        console.log('here',results.rows[0])
+        console.log('here', results.rows[0])
         response.status(201).send(`User added with ID: ${results.rows[0].id}`)
     })
 }
 
 const updateUser = (request, response) => {
     const id = request.params.id;
-    const {name, email} = request.body;
-
+    const {name, email, active} = request.body;
+    const updateDate = new Date();
     pool.query(
-        'UPDATE users SET user_name = $1, user_email = $2 WHERE id = $3',
-        [name, email, id],
+        'UPDATE users SET user_name = $1, user_email = $2, update_date=$3, active=$4 WHERE id = $5',
+        [name, email, updateDate, active, id],
         (error, results) => {
             if (error) {
                 throw error
