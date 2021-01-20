@@ -12,7 +12,7 @@
     "start": "node ./build/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
-    "server:build": "yarn run clean && yarn run build-babel",
+    "server:build": "yarn run clean && yarn run build-babel && yarn run migrate && yarn run seed",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn run server:build",
     "knex": "babel-node node_modules/.bin/knex",
     "seed": "yarn knex seed:run --knexfile src/db/knexfile.js",
