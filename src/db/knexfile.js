@@ -1,6 +1,11 @@
 // Update with your config settings.
 require('dotenv').config({ path: __dirname + '/../../.env' });
 
+console.log('herer, NODE_ENV', process.env.NODE_ENV)
+console.log('herer, DATABASE_HOST', process.env.DATABASE_HOST)
+console.log('herer, DATABASE_PORT', process.env.DATABASE_PORT)
+console.log('herer , DATABASE_DATABASE', process.env.DATABASE_DATABASE)
+
 let connection = {
   host: process.env.DATABASE_HOST,
   port: process.env.DATABASE_PORT,
@@ -12,7 +17,7 @@ let connection = {
   connectionTimeoutMillis: 2000,
 }
 
-if(process.env.NODE_ENV === "development"){
+if(process.env.NODE_ENV === "production"){
   connection = {
     ...connection,
     ssl: {
