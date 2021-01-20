@@ -1,14 +1,6 @@
-import {Pool} from 'pg';
-import dbConfig from "../configs/dbConfig";
+import knex from 'knex';
+import knexConfig from './knexfile';
 
-const pool = new Pool(dbConfig)
+const connection = knex(knexConfig);
 
-pool.connect((err, client, release) => {
-    if (err) {
-        return console.error('Error acquiring client', err.stack)
-    }
-
-    console.log('db connected')
-})
-
-export default pool;
+export default connection;
