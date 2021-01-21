@@ -1,7 +1,7 @@
 import {USERS} from './../../constants/table';
 
 /**
- * Delete existing entries from evaluation_score table.
+ * Delete existing entries from users table.
  *
  * @param {Object} knex
  *

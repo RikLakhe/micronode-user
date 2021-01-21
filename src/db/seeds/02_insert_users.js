@@ -2,6 +2,13 @@ import {USERS} from './../../constants/table';
 import generateUUID from "../../helper/generateUUID"
 import {hashPassword} from "../../helper/passwordUtils"
 
+/**
+ * Insert entries to users table.
+ *
+ * @param {Object} knex
+ *
+ * @returns {Promise}
+ */
 export function seed(knex) {
   return knex(USERS).insert([
     {
