@@ -40,7 +40,7 @@ $ yarn seed
 Start the development server.
 
 ```sh
-$ yarn babel-watch
+$ yarn start:dev
 
 ```
 

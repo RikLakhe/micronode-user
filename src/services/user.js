@@ -7,9 +7,9 @@ import {USERS} from "../constants/table"
  * @returns {Array}
  * 
  */
-export async function getAllUsers(){
-    const data = await knex(USERS);
-    return data;
+export async function findAll(){
+    const user = await knex(USERS);
+    return user;
 }
 
 /**
@@ -19,9 +19,9 @@ export async function getAllUsers(){
  * @returns {Array}
  * 
  */
-export async function getUserById(id){
-    const data = await knex(USERS).select().where({"user_id": id});
-    return data;
+export async function findById(id){
+    const user = await knex(USERS).select().where({"user_id": id});
+    return user;
 }
 
 /**
@@ -31,9 +31,9 @@ export async function getUserById(id){
  * @returns {Array}
  * 
  */
-export async function getUserByeEmail(id){
-    const data = await knex(USERS).select().where({"user_email": email});
-    return data;
+export async function findByEmail(email){
+    const user = await knex(USERS).select().where({"user_email": email});
+    return user;
 }
 
 /**
@@ -43,9 +43,9 @@ export async function getUserByeEmail(id){
  * @returns {Array}
  * 
  */
-export async function createUser(data){
-    const data = await knex(USERS).insert(data).returning("*").then(rows => {return rows[0];});
-    return data;
+export async function create(data){
+    const user = await knex(USERS).insert(data).returning("*").then(rows => {return rows[0];});
+    return user;
 }
 
 /**
@@ -55,9 +55,9 @@ export async function createUser(data){
  * @returns {Array}
  * 
  */
-export async function updateUser(data){
-    const data = await knex(USERS).update(data).where('user_id',id).returning("*").then(rows => {return rows[0];});
-    return data;
+export async function updateById(data, id){
+    const user = await knex(USERS).update(data).where('user_id',id).returning("*").then(rows => {return rows[0];});
+    return user;
 }
 
 /**
@@ -67,7 +67,7 @@ export async function updateUser(data){
  * @returns {Array}
  * 
  */
-export async function deleteUser(id){
-    const data = await knex(USERS).delete().where('user_id',id)
-    return data;
+export async function deleteById(id){
+    const user = await knex(USERS).delete().where('user_id',id)
+    return user;
 }
