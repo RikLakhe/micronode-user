@@ -7,7 +7,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "babel-watch": "NODE_ENV=development babel-watch -L src/index.js",
+    "start:dev": "NODE_ENV=development yarn babel-watch -L src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/index.js",
     "clean": "rm -rf build && mkdir build",
