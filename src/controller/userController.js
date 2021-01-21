@@ -16,5 +16,8 @@ export default{
     },
     deleteUser(id){
         return knex(USERS).delete().where('user_id',id)
-    }
+    },
+    getUserByeEmail(email){
+        return knex(USERS).select().where({"user_email": email});
+    },
 }
