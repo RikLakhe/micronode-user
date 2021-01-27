@@ -6,7 +6,7 @@ import publicRouter from "../routes";
 
 const app = express();
 
-const port = process.env.PORT || "3001";
+const port = process.env.PORT || "3003";
 
 app.use(
     logger('dev'),
@@ -32,6 +32,6 @@ app.use(function (err, req, res, next) {
     });
   });
 
-app.listen(port, () => {
+app.listen(port,() => {
     console.log(`App running on port ${port}.`)
 })
