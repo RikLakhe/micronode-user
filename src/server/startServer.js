@@ -20,9 +20,10 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-    response.json({info: 'Node.js, Express, and Postgres API'})
+    response.json({info: 'User server up and running !!!!'})
 })
-app.use('/api',publicRouter);
+
+app.use('/v1',publicRouter);
 
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
