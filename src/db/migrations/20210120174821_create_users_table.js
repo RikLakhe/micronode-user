@@ -8,10 +8,9 @@ import {USERS} from './../../constants/table';
  */
 export function up(knex) {
     return knex.schema.createTable(USERS, table => {
-      table.dropPrimary()
+      // table.dropPrimary()
 
       table.primary('user_id')
-      table.increments('sn');
       table.string('user_id');
       table.string('user_name').notNullable();
       table.string('user_email').unique().notNullable();
@@ -21,7 +20,7 @@ export function up(knex) {
       table.boolean('active').defaultTo(true);
     });
   }
-  
+
   /**
    * Drop `users`.
    *
