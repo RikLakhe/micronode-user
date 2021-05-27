@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "scripts": {
     "start:dev": "NODE_ENV=development yarn babel-watch -L src/index.js",
@@ -39,6 +39,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
     "knex": "^0.21.16",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",

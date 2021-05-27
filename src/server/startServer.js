@@ -3,6 +3,7 @@ import bodyParser from "body-parser"
 import logger from 'morgan'
 import cors from 'cors'
 import publicRouter from "../routes";
+import buildError from "../helper/buildError";
 
 const app = express();
 
@@ -26,12 +27,9 @@ app.get('/', (request, response) => {
 app.use('/v1',publicRouter);
 
 app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.json({
-      message: err.message,
-      error: res.locals.error = req.app.get('env') === 'development' ? err : {}
-    });
-  });
+    const error = buildError(err);
+    res.status(error.code).json({error});
+});
 
 app.listen(port,() => {
     console.log(`App running on port ${port}.`)
