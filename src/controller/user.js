@@ -15,7 +15,7 @@ export async function findAll(req, res, next) {
         const response = await userService.findAll();
 
         res.json({
-            response
+            data : response
         });
     } catch (err) {
         next(err);
@@ -34,7 +34,7 @@ export async function findById(req, res, next) {
         const response = await userService.findById(req.params.id);
 
         res.json({
-            response
+            data : response
         });
     } catch (err) {
         next(err);
@@ -73,7 +73,7 @@ export async function create(req, res, next) {
             const response = await userService.create(data);
 
             res.json({
-                response
+                data : response
             });
         }
     } catch (err) {
@@ -111,7 +111,7 @@ export async function updateById(req, res, next) {
             const response = await userService.updateById(data, req.params.id);
 
             res.json({
-                response
+                data : response
             });
         }
     } catch (err) {
@@ -133,7 +133,7 @@ export async function deleteById(req, res, next) {
         const response = await userService.deleteById(req.params.id);
 
         res.json({
-            response
+            data : response
         });
     } catch (err) {
         next(err);

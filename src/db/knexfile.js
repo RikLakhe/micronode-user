@@ -31,6 +31,10 @@ module.exports = {
     tableName: 'migrations',
     directory: './migrations',
   },
+  rollback:{
+    tableName: 'migrations',
+    directory: './migrations',
+  },
   seeds: {
     directory: './seeds',
   },

@@ -53,3 +53,10 @@ yarn start:dev
 
 2. Module Table
 ![Modules Table Diagram](/img/modules_table_diagram.png)
+
+## Docker
+to build docker container, run
+
+```sh
+docker build .
+```
