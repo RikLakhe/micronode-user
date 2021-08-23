@@ -7,6 +7,9 @@ import {customLog} from "../helper/log";
 let router = Router();
 
 try{
+    router.get('/ping', (request, response) => {
+        response.json({info: 'ping in user !!!!'})
+    })
     router.get('/', userController.findAll)
     router.get('/:id', userController.findById)
     router.post('/', userController.create)
